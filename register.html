@@ -41,19 +41,19 @@
 		<div class="circle" id="circle5"></div>
 		<div class="circle" id="circle6"></div>
 		<div class="content">
+			<form id="registry">
 			<h1 class="pageName">Регистрация участников конференции</h1>
-			<form id="registry" action="/action_page.php">
 				<div class="registryInputContainer" id="registryInputContainer1">
 					<label for="name">ФИО:</label>
-					<input type="text" required id="name" name="name" placeholder="Иванов Иван Иванович" pattern="[А-Яа-я]+ [А-Яа-я]+ [А-Яа-я]+">
+					<input type="text" required id="name" name="fullName" placeholder="Иванов Иван Иванович" pattern="[А-Яа-я]+ [А-Яа-я]+ [А-Яа-я]+" autocomplete="on">
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer2">
 					<label for="phone">Телефонный номер:</label>
-					<input type="tel" required id="phone" name="phone" placeholder="+74991231212" pattern="\+7\d{10}">
+					<input type="tel" required id="phone" name="phoneNumber" placeholder="+74991231212" pattern="\+7\d{10}" autocomplete="on">
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer3">
 					<label for="mail">Почта:</label>
-					<input type="email" required id="mail" name="mail">
+					<input type="email" required id="mail" name="mail" autocomplete="on">
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer4">
 					<label for="conf_section">Секция:</label>
@@ -70,13 +70,13 @@
 				<div class="registryInputContainer" id="registryInputContainer6">
 					<span class="inlineText">Доклад</span>
 					<label class="switch">
-						<input type="checkbox" onclick="showRepTheme()">
+						<input type="checkbox" name="hasPres" onclick="showPresTheme()">
 						<span class="slider round"></span>
 					</label>
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer7" style="display: none;">
-					<!--<label for="rep_theme">Тема доклада:</label>-->
-					<textarea id="rep_theme" name="rep_theme" rows="3" cols="30" placeholder="Тема доклада"></textarea>
+					<!--<label for="Pres_theme">Тема доклада:</label>-->
+					<textarea id="presTheme" name="presTheme" rows="3" cols="30" placeholder="Тема доклада" autocomplete="on"></textarea>
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer8">
 					<input class="button clickable" type="submit" value="Submit">
@@ -106,10 +106,11 @@
 			</div>
 		</div>
 	</footer>
+  </body>
 	<script>
-		function showRepTheme() {
+		function showPresTheme() {
 			var x = document.getElementById("registryInputContainer7");
-			var txtArea = document.getElementById("rep_theme");
+			var txtArea = document.getElementById("presTheme");
 			if (x.style.display == "none") {
 				x.style.display = "flex";
 				x.style.height = "100%";
@@ -120,6 +121,23 @@
 				txtArea.required = false;
 			}
 		}
+		function setCookie(c_name,value,exdays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+			console.log(c_name + "=" + c_value);
+			//if (c_name!=""&&c_value!="") {
+				document.cookie=c_name + "=" + c_value;
+			//}
+        }
+		document.getElementById('registry').addEventListener('submit', function(event) {
+			event.preventDefault();
+			var els = document.forms['registry'].elements;
+			for (var i=els.length;i--;){
+				setCookie(els[i].name, els[i].value, 300);
+			}
+		});
 	</script>
-  </body>
+
 </html>
