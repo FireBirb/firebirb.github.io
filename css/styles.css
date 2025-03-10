@@ -246,7 +246,7 @@ fieldset{
 	padding: 10px;
 }
 
-#registry {
+#registry, #registryOutput {
 	width: 36%;
 	display: grid;
 	grid-template-rows: repeat(8, auto);
@@ -256,7 +256,7 @@ fieldset{
 	border: dotted 2px #777;
 	border-radius: 15px;
 }
-.registryInputContainer {
+.registryInputContainer, .registryOutputContainer {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -275,31 +275,33 @@ fieldset{
 .registryInputContainer textarea  {
 	height: auto;
 }
-#registryInputContainer1 {
+#registryInputContainer1, #registryOutputContainer1 {
 	grid-row: 1;
 }
-#registryInputContainer2 {
+#registryInputContainer2, #registryOutputContainer2 {
 	grid-row: 2;
 }
-#registryInputContainer3 {
+#registryInputContainer3, #registryOutputContainer3 {
 	grid-row: 3;
 }
-#registryInputContainer4 {
+#registryInputContainer4, #registryOutputContainer4 {
 	grid-row: 4;
 }
-#registryInputContainer5 {
+#registryInputContainer5, #registryOutputContainer5 {
 	grid-row: 5;
 }
-#registryInputContainer6 {
+#registryInputContainer6, #registryOutputContainer6 {
 	grid-row: 6;
 }
-#registryInputContainer7 {
+#registryInputContainer7, #registryOutputContainer7 {
 	grid-row: 7;
+}
+#registryInputContainer7 {
 	overflow: hidden;
 	height: 0px;
 	display: none;
 }
-#registryInputContainer8 {
+#registryInputContainer8, #registryOutputContainer8 {
 	grid-row: 8;
 }
 .switch {

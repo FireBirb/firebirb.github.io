@@ -41,47 +41,34 @@
 		<div class="circle" id="circle5"></div>
 		<div class="circle" id="circle6"></div>
 		<div class="content">
-			<form id="registry">
-			<h1 class="pageName">Регистрация участников конференции</h1>
-				<div class="registryInputContainer" id="registryInputContainer1">
-					<label for="name">ФИО:</label>
-					<input type="text" required id="name" name="fullName" placeholder="Иванов Иван Иванович" pattern="[А-Яа-я]+ [А-Яа-я]+ [А-Яа-я]+" autocomplete="on">
+			<div id="registryOutput">
+				<h1 class="pageName">Регистрация участников конференции</h1>
+				<div class="registryOutputContainer" id="registryOutputContainer1">
+					<p>ФИО: <span class="output" id="nameOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer2">
-					<label for="phone">Телефонный номер:</label>
-					<input type="tel" required id="phone" name="phoneNumber" placeholder="+74991231212" pattern="\+7\d{10}" autocomplete="on">
+				<div class="registryOutputContainer" id="registryOutputContainer2">
+					<p>Номер телефона: <span class="output" id="phoneOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer3">
-					<label for="mail">Почта:</label>
-					<input type="email" required id="mail" name="mail" autocomplete="on">
+				<div class="registryOutputContainer" id="registryOutputContainer3">
+					<p>Почта: <span class="output" id="mailOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer4">
-					<label for="conf_section">Секция:</label>
-					<select class="clickable" id="conf_section" name="conf_section">
-						<option id="math" value="math">Математика</option>
-						<option id="physics" value="physics">Физика</option>
-						<option id="IT" value="IT">Информатика</option>
-					</select>
+				<div class="registryOutputContainer" id="registryOutputContainer4">
+					<p>Секция: <span class="output" id="confSectOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer5">
-					<label class="clickable" for="birthday">Дата рождения:</label>
-					<input class="clickable" required type="date" id="birthday" name="birthday">
+				<div class="registryOutputContainer" id="registryOutputContainer5">
+					<p>Дата рождения: <span class="output" id="birthdayOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer6">
-					<span class="inlineText">Доклад</span>
-					<label class="switch">
-						<input type="checkbox" name="hasPres" onclick="showPresTheme()">
-						<span class="slider round"></span>
-					</label>
+				<div class="registryOutputContainer" id="registryOutputContainer6">
+					<p>Доклад: <span class="output" id="presToggleOutput"></span></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer7" style="display: none;">
-					<!--<label for="Pres_theme">Тема доклада:</label>-->
-					<textarea id="presTheme" name="presTheme" rows="3" cols="30" placeholder="Тема доклада" autocomplete="on"></textarea>
+				<div class="registryOutputContainer" id="registryOutputContainer7" style="display: none;">
+					<p>Тема доклада:</p>
+					<p class="output" id="presThemeOutput"></p>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer8">
+				<!--<div class="registryOutputContainer" id="registryOutputContainer8">
 					<input class="button clickable" type="submit" value="Submit">
-				</div>
-			</form>
+				</div>-->
+			</div>
 		</div>
 	</main>
 	<footer class="darkBox">
@@ -108,35 +95,51 @@
 	</footer>
   </body>
 	<script>
-		function showPresTheme() {
-			var x = document.getElementById("registryInputContainer7");
-			var txtArea = document.getElementById("presTheme");
-			if (x.style.display == "none") {
-				x.style.display = "flex";
-				x.style.height = "100%";
-				txtArea.required = true;
-			} else {
-				x.style.display = "none";
-				x.style.height = "0px";
-				txtArea.required = false;
-			}
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
 		}
-		function setCookie(c_name,value,exdays)
+		function getCookies()
         {
+			const fields = document.getElementsByClassName('output');
+			const nameField = document.getElementById('nameOutput');
+			const phoneField = document.getElementById('phoneOutput');
+			const mailField = document.getElementById('mailOutput');
+			const confSectField = document.getElementById('confSectOutput');
+			const birthdayField = document.getElementById('birthdayOutput');
+			const hasPresField = document.getElementById('presToggleOutput');
+			const presThemeField = document.getElementById('presThemeOutput');
+			
+			nameField.innerHTML = getCookie("fullName");
+			phoneField.innerHTML = getCookie("phoneNumber");
+			mailField.innerHTML = getCookie("mail");
+			confSectField.innerHTML = getCookie("conf_section");
+			birthdayField.innerHTML = getCookie("birthday");
+			hasPresField.innerHTML = getCookie("hasPres")=="on" ? "да" : "нет";
+			presThemeField.innerHTML = getCookie("presTheme");
+			/*for (let cookie of cookies) {
+				const [cookieName, cookieValue] = cookie.split('=');
+				if (cookieName === "fullName") {
+					return decodeURIComponent(cookieValue);
+				}
+			}
             var exdate=new Date();
             exdate.setDate(exdate.getDate() + exdays);
             var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 			console.log(c_name + "=" + c_value);
-            document.cookie=c_name + "=" + c_value;
+            document.cookie=c_name + "=" + c_value;*/
         }
-		document.getElementById('registry').addEventListener('submit', function(event) {
+		
+		/*document.getElementById('registry').addEventListener('submit', function(event) {
 			event.preventDefault();
 			var els = document.forms['registry'].elements;
 			for (var i=els.length;i--;){
 				setCookie(els[i].name, els[i].value, 300);
 			}
-			window.location = 'registered.html';
-		});
+			
+		});*/
+		window.onload = getCookies;
 	</script>
 
 </html>
