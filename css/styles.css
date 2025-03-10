@@ -63,7 +63,7 @@ header {
 	white-space: nowrap;
 }
 #PhoneContainer>p{
-	font-size: 24pt;
+	font-size: max(1.7vw, 14pt);
 	font-family: Roboto;
 }
 
@@ -109,49 +109,45 @@ main {
 	background: blue;	
 }
 #circle1 {
-	width: 300px;
-	height: 300px;
-	/*left: 16%;*/
-	left: 300px;
-	bottom: 300px;
+	width: 15.7vw;
+	height: 15.7vw;
+	left: 16%;
+	/*left: 300px;*/
+	bottom: 32%;
 }
 #circle2, #circle6 {
 	background: green;
+	width: 8vw;
+	height: 8vw;
 }
 #circle2 {
-	width: 150px;
-	height: 150px;
-	/*left: 28%;*/
-	left: 530px;
-	bottom: 500px;
+	left: 28%;
+	/*left: 530px;*/
+	bottom: 54%;
 }
 #circle3, #circle5 {
-	background: OrangeRed;
+	width: 13.8vw;
+	height: 13.8vw;
+	background: DarkOrange;
 }
 #circle3{
-	width: 300px;
-	height: 300px;
-	/*left: 34%;*/
-	left: 655px;
-	bottom: 350px;
+	left: 34.8%;
+	/*left: 655px;*/
+	bottom: 41%;
 }
 #circle4{
-	height: 220px;
-	width: 220px;
-	right: 655px;
-	bottom: 400px;
+	height: 11.6vw;
+	width: 11.6vw;
+	left: 55%;
+	bottom: 42.8%;
 }
 #circle5{
-	width: 300px;
-	height: 300px;
-	right: 400px;
-	bottom: 470px;
+	left: 65%;
+	bottom: 50%;
 }
 #circle6 {
-	width: 150px;
-	height: 150px;
-	right: 390px;
-	bottom: 360px;
+	left: 70%;
+	bottom: 37%;
 }
 .pageName {
 	position: absolute;
@@ -174,8 +170,8 @@ main {
 .contentContainer {
 	padding: 20px;
 	padding-left: 30px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 1vw;
+	margin-right: 1vw;
 	height: auto;
 }
 .contentTextContainer {
