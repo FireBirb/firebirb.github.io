@@ -9,7 +9,7 @@
 	<body>
 		<header>
 			<div id="CompanyContainer">
-				<div id="CompanyLogo"></div>
+				<div class="logo" id="CompanyLogo"></div>
 				<div id="CompanyTextContainer">
 					<h2 class="CompanyHeader" id="CompanyName">Название компании</h2>
 					<p class="CompanyHeader" id="CompanySlogan">Описание компаниии</P>
@@ -261,6 +261,7 @@
 				<p>© 2025-2026 ЗАО "Компания"</p>
 				<p>info@name.ru</p>
 			</div>
+			<div>
 				<ul>
 					<li class="clickable"><a href="index.html">Главная</a></li>
 					<li class="clickable"><a href="test.html">Тест</a></li>
@@ -268,10 +269,13 @@
 					<li class="clickable"><a href="photogallery.html">Галлерея</a></li>
 					<li class="clickable"><a href="attributions.html">Упоминания</a></li>
 				</ul>
+			</div>
 			<div>
-				<div id="SiteLogo"></div>
-				<p><span style="text-decoration: underline; text-underline-offset: 2px;">Разработка сайта</span> -</p>
-				<p>компания "Пиксель плюс"</p>
+				<div class="logo" id="bottomLogo"></div>
+				<div>
+					<p><span style="text-decoration: underline; text-underline-offset: 2px;">Разработка сайта</span> -</p>
+					<p>компания "Пиксель плюс"</p>
+				</div>
 			</div>
 		</footer>
 	</body>
@@ -301,12 +305,12 @@
 			}
 			//result = Number.isInteger(result) ? result : result.toFixed(2);
 			var quests = document.getElementsByTagName("fieldset")
-			quests[0].style.backgroundColor = result_1 == 3 ? "#9fff80" : "#ff8080"; 
-			quests[1].style.backgroundColor = result_2 == 1 ? "#9fff80" : "#ff8080"; 
-			quests[2].style.backgroundColor = result_3 == 8 ? "#9fff80" : "#ff8080"; 
-			quests[3].style.backgroundColor = result_4 == 1 ? "#9fff80" : "#ff8080"; 
-			quests[4].style.backgroundColor = result_5 == 1 ? "#9fff80" : "#ff8080"; 
-			quests[5].style.backgroundColor = result_6 == 4 ? "#9fff80" : "#ff8080"; 
+			quests[0].style.backgroundColor = result_1 == 3 ? "#c3efc3" : "#efc3c3"; 
+			quests[1].style.backgroundColor = result_2 == 1 ? "#c3efc3" : "#efc3c3"; 
+			quests[2].style.backgroundColor = result_3 == 8 ? "#c3efc3" : "#efc3c3"; 
+			quests[3].style.backgroundColor = result_4 == 1 ? "#c3efc3" : "#efc3c3"; 
+			quests[4].style.backgroundColor = result_5 == 1 ? "#c3efc3" : "#efc3c3"; 
+			quests[5].style.backgroundColor = result_6 == 4 ? "#c3efc3" : "#efc3c3"; 
 
 			//alert("Ваш результат: " + result + "%");
 			alert((result_1==3 ? 1 : 0)+(result_2==1 ? 1 : 0)+(result_3==8 ? 1 : 0)+(result_4==1 ? 1 : 0)+(result_5==1 ? 1 : 0)+(result_6==4 ? 1 : 0) + " правильных ответов");
