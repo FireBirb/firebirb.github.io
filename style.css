@@ -1,0 +1,301 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	color: #777;
+	font-family: Helvetica;
+	z-index: 1;
+}
+
+.clickable > a{
+	text-decoration: none;
+}
+.clickable:hover {
+	cursor: pointer;
+}
+
+header {
+	position: relative;
+	background: #DCDCDC;
+	color: #777;
+	height: 150px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 14%;
+	padding-right: 14%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	z-index: 10;
+}
+#CompanyContainer {
+	height: 80px;
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	/*padding-top: 10px;
+	padding-bottom: 10px;*/
+}
+#CompanyLogo {
+	height: 80px;
+	width: 80px;
+	background: #777;
+	float: left;
+	margin-right: 5px;
+}
+#CompanyTextContainer {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: left;
+}
+#CompanyTextContainer > p {
+	white-space: nowrap;
+}
+#PhoneContainer>p{
+	font-size: 24pt;
+	font-family: Roboto;
+}
+
+nav {
+	position:relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	z-index: 10;
+}
+nav > p {
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 15pt;
+}
+nav > p:hover {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.darkBox {
+	background-color: #777;
+}
+
+.darkBox, .darkBox * {
+	color: #fff;
+}
+
+main {
+	background: #F8F8F8;
+	padding-top: 300px;
+	z-index: -1;
+}
+.circle {
+	border-radius: 50%;
+	opacity: 15%;
+	position: absolute;
+	z-index: 0;
+}
+#circle1, #circle4 {
+	background: blue;	
+}
+#circle1 {
+	width: 300px;
+	height: 300px;
+	/*left: 16%;*/
+	left: 300px;
+	bottom: 300px;
+}
+#circle2, #circle6 {
+	background: green;
+}
+#circle2 {
+	width: 150px;
+	height: 150px;
+	/*left: 28%;*/
+	left: 530px;
+	bottom: 500px;
+}
+#circle3, #circle5 {
+	background: OrangeRed;
+}
+#circle3{
+	width: 300px;
+	height: 300px;
+	/*left: 34%;*/
+	left: 655px;
+	bottom: 350px;
+}
+#circle4{
+	height: 220px;
+	width: 220px;
+	right: 655px;
+	bottom: 400px;
+}
+#circle5{
+	width: 300px;
+	height: 300px;
+	right: 400px;
+	bottom: 470px;
+}
+#circle6 {
+	width: 150px;
+	height: 150px;
+	right: 390px;
+	bottom: 360px;
+}
+
+.content {
+	width: 100%;
+	padding-bottom: 150px;
+	padding-top: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.contentContainer {
+	padding: 20px;
+	padding-left: 30px;
+	margin-left: 25px;
+	margin-right: 25px;
+	height: auto;
+}
+.contentTextContainer {
+	margin-bottom: 13px;
+}
+.contentTextContainer > * {
+	text-align: justify;
+}
+#newsArchive {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	text-align: right;
+}
+#aboutUsContainer {
+	width: 30%;
+}
+
+#forma{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+#forma * {
+	color: #444;
+}
+fieldset{
+	flex: 1 1 45%;
+    max-width: 45%;
+	padding: 10px;
+}
+
+#imagesContainer {
+	width: 70%;
+	height: 430px;
+	overflow: hidden;
+}
+#gridImagesContainer {
+	width: fit-content;
+	height: 100%;
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(6, 500px);
+	column-gap: 20px;
+	left: -520px;
+}
+.galleryImageContainer {
+	overflow: visible;
+	position: absolute;
+	align-self: center;
+}
+#image1Container {
+	grid-column: 1;
+	grid-row: 1;
+}
+#image2Container {
+	grid-column: 2;
+	grid-row: 1;
+}
+#image3Container {
+	grid-column: 3;
+	grid-row: 1;
+}
+#image4Container {
+	grid-column: 4;
+	grid-row: 1;
+}
+#image5Container {
+	grid-column: 5;
+	grid-row: 1;
+}
+#image6Container {
+	grid-column: 6;
+	grid-row: 1;
+}
+.galleryImageContainer, .galleryImage {
+	height: 350px;
+	width: 500px;
+	border-radius: 10px;
+}
+.galleryImage {
+	box-shadow: 2px 2px 8px #8a8a8a;
+}
+.moving {
+  animation: carousell 0.7s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes carousell {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-520px);
+  }
+}
+#imagesContainer > button{
+	position: relative;
+	float: right;
+	width: 70px;
+	height: 70px;
+	right: 5px;
+	top: -50%;
+	border-radius: 50%;
+	border: none;
+	background: #DCDCDC;
+	opacity: 50%;
+	transition: opacity 0.5s;
+}
+#imagesContainer > button:hover{
+	opacity: 66%;
+}
+#imagesContainer > button::after{
+	content: "";
+	opacity: 100%;
+	width: 70px;
+	height: 70px;
+	border-radius: inherit;
+	display: inline-block;
+    cursor: pointer;
+	background-size:70%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url('Images/right-chevron.png');
+}
+
+footer{
+	height: 150px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+footer ul {
+	list-style-type: none;
+}
+footer li {
+	text-decoration: underline;
+	text-underline-effect: 2px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+	<div class="container">
+		<div class="square" style="--i:0;"></div>
+		<div class="square" style="--i:1;"></div>
+		<div class="square" style="--i:2;"></div>
+		<div class="square" style="--i:3;"></div>
+		<div class="square" style="--i:4;"></div>
+		<form action="/action_page.php">
+			<label for="name">ФИО:</label>
+			<input type="text" required id="name" name="name" placeholder="Иванов Иван Иванович" pattern="[А-Яа-я]+ [А-Яа-я]+ [А-Яа-я]+">
+			<label for="phone">Телефонный номер:</label>
+			<input type="tel" required id="phone" name="phone" placeholder="+73512400440" pattern="\+7\d{10}">
+			<label for="mail">Почта:</label>
+			<input type="email" required id="mail" name="mail">
+			<label for="conf_section">Секция:</label>
+			<select id="conf_section" name="conf_section">
+				<option id="math" value="math">Математика</option>
+				<option id="physics" value="physics">Физика</option>
+				<option id="IT" value="IT">Информатика</option>
+			</select>
+			<div>
+				<label for="birthday">Дата рождения:</label>
+				<input type="date" id="birthday" name="birthday">
+			</div>
+			<div style="display: flex; flex-wrap: wrap;">
+				<span class="inline_text">Доклад</span>
+				<label class="switch">
+					<input type="checkbox" onclick="showRepTheme()">
+					<span class="slider round"></span>
+				</label>
+			</div>
+			<div id="rep_theme_box" style="opacity: 0;">
+				<!--<label for="rep_theme">Тема доклада:</label>-->
+				<input type="text" id="rep_theme" name="rep_theme" placeholder="Тема доклада">
+			</div>
+			<input class="button" type="submit" value="Submit">
+		</form>
+	</div>
+	<script>
+		function showRepTheme() {
+			var x = document.getElementById("rep_theme_box");
+			if (x.style.opacity === "0") {
+				x.style.opacity = "1";
+				//x.style.width = "100%";
+				//x.style.height = "auto";
+			} else {
+				x.style.opacity = "0";
+				//x.style.width = "0px";
+				//x.style.height = "0px";
+			}
+		}
+	</script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+	<?php include "Partials/header.php"; ?>
+	<?php include "Partials/navigation.php"; ?>
+	<main>
+		<div class="circle" id="circle1"></div>
+		<div class="circle" id="circle2"></div>
+		<div class="circle" id="circle3"></div>
+		<div class="circle" id="circle4"></div>
+		<div class="circle" id="circle5"></div>
+		<div class="circle" id="circle6"></div>
+		<div class="content">
+			<div id="imagesContainer">
+				<div id="gridImagesContainer">
+					<div class="galleryImageContainer" id="image1Container"><img class="galleryImage" id="image1" src="Images/building-4803602_1280.jpg" alt="pic1"/></div>
+					<div class="galleryImageContainer" id="image2Container"><img class="galleryImage" id="image1" src="Images/laptop-3196481_1280.jpg" alt="pic2"/></div>
+					<div class="galleryImageContainer" id="image3Container"><img class="galleryImage" id="image1" src="Images/architecture-1868667_1280.jpg" alt="pic3"/></div>
+					<div class="galleryImageContainer" id="image4Container"><img class="galleryImage" id="image1" src="Images/startup-3267505_1280.jpg" alt="pic4"/></div>
+					<div class="galleryImageContainer" id="image5Container"><img class="galleryImage" id="image1" src="Images/city-4991094_1280.jpg" alt="pic5"/></div>
+					<div class="galleryImageContainer" id="image6Container"><img class="galleryImage" id="image1" src="Images/desk-3139127_1280.jpg" alt="pic6"/></div>
+				</div>
+				<button onclick="Scroll()" class="clickable">
+			</div>
+			
+		</div>
+		<div>
+	</main>
+	<footer class="darkBox">
+		<div>
+			<p>© 2025-2026 ЗАО "Компания"</p>
+			<p>info@name.ru</p>
+		</div>
+			<ul>
+				<li class="clickable"><a href="index.html">Главная</a></li>
+				<li class="clickable"><a href="test.html">Тест</a></li>
+				<li class="clickable"><a href="index.html">Регистрация</a></li>
+				<li class="clickable"><a href="index.html">Ссылка</a></li>
+				<li class="clickable"><a href="index.html">Ссылка</a></li>
+			</ul>
+		<div>
+			<div id="SiteLogo"></div>
+			<p><span style="text-decoration: underline; text-underline-offset: 2px;">Разработка сайта</span> -</p>
+			<p>компания "Пиксель плюс"</p>
+		</div>
+	</footer>
+  </body>
+  <script>
+	const images = document.getElementsByClassName("galleryImageContainer");
+	let leftmost = 0;
+	function EndAnim() {
+		let i = 0;
+		for (const image of images) {
+			console.log(image.offsetLeft);
+			style=window.getComputedStyle(image);
+			column = style.getPropertyValue('grid-column');
+			console.log(column);
+			if (i==leftmost) {
+				//image.style.left = (image.offsetLeft + 520*5)+"px";
+				//console.log(i + " " + (image.offsetLeft + 520*5)+"px");
+				image.style["grid-column"] = "6"
+			} else {
+				//image.style.left = image.offsetLeft-1040+"px";
+				//console.log(i + " " + image.offsetLeft);
+				image.style["grid-column"] = parseInt(column)-1+"";
+			}
+			image.classList.remove("moving");
+			i++;
+		}
+		leftmost++;
+		leftmost = leftmost%images.length;
+	}
+	function Scroll() {
+		for (const image of images) {
+			console.log(image.offsetLeft);
+			image.classList.add("moving");
+		}
+		setTimeout(EndAnim, 701);
+	}
+  </script>
+</html>
