@@ -65,7 +65,7 @@
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer5">
 					<label class="clickable" for="birthday">Дата рождения:</label>
-					<input class="clickable" type="date" id="birthday" name="birthday">
+					<input class="clickable" required type="date" id="birthday" name="birthday">
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer6">
 					<span class="inlineText">Доклад</span>
@@ -74,9 +74,9 @@
 						<span class="slider round"></span>
 					</label>
 				</div>
-				<div class="registryInputContainer" id="registryInputContainer7">
+				<div class="registryInputContainer" id="registryInputContainer7" style="display: none;">
 					<!--<label for="rep_theme">Тема доклада:</label>-->
-					<input type="text" id="rep_theme" name="rep_theme" placeholder="Тема доклада">
+					<textarea id="rep_theme" name="rep_theme" rows="3" cols="30" placeholder="Тема доклада"></textarea>
 				</div>
 				<div class="registryInputContainer" id="registryInputContainer8">
 					<input class="button clickable" type="submit" value="Submit">
@@ -109,16 +109,15 @@
 	<script>
 		function showRepTheme() {
 			var x = document.getElementById("registryInputContainer7");
-			if (x.style.opacity === "0") {
-				//x.style.display = "initial";
-				//x.style.opacity = "1";
-				//x.style.width = "100%";
-				//x.style.height = "auto";
+			var txtArea = document.getElementById("rep_theme");
+			if (x.style.display == "none") {
+				x.style.display = "flex";
+				x.style.height = "100%";
+				txtArea.required = true;
 			} else {
-				//x.style.opacity = "0";
-				//x.style.display = "none";
-				//x.style.width = "0px";
-				//x.style.height = "0px";
+				x.style.display = "none";
+				x.style.height = "0px";
+				txtArea.required = false;
 			}
 		}
 	</script>
