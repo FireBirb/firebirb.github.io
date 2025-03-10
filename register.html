@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+	<header>
+		<div id="CompanyContainer">
+			<div class="logo" id="CompanyLogo"></div>
+			<div id="CompanyTextContainer">
+				<h2 class="CompanyHeader" id="CompanyName">Название компании</h2>
+				<p class="CompanyHeader" id="CompanySlogan">Описание компаниии</P>
+			</div>
+		</div>
+		<div id="PhoneContainer">
+			<p>+7(499) 777-77-77</p>
+			<p>+7(499) 777-77-77</p>
+		</div>
+	</header>
+	<nav class="darkBox">
+		<p class="clickable"><a href="index.html">Главная</a></p>
+		<p>|</p>
+		<p class="clickable"><a href="test.html">Тест</a></p>
+		<p>|</p>
+		<p class="clickable"><a href="register.html">Регистрация</a></p>
+		<p>|</p>
+		<p class="clickable"><a href="photogallery.html">Галлерея</a></p>
+		<p>|</p>
+		<p class="clickable"><a href="attributions.html">Упоминания</a></p>
+	</nav>
+	<main>
+		<div class="circle" id="circle1"></div>
+		<div class="circle" id="circle2"></div>
+		<div class="circle" id="circle3"></div>
+		<div class="circle" id="circle4"></div>
+		<div class="circle" id="circle5"></div>
+		<div class="circle" id="circle6"></div>
+		<div class="content">
+			<h1 class="pageName">Регистрация участников конференции</h1>
+			<form id="registry" action="/action_page.php">
+				<div class="registryInputContainer" id="registryInputContainer1">
+					<label for="name">ФИО:</label>
+					<input type="text" required id="name" name="name" placeholder="Иванов Иван Иванович" pattern="[А-Яа-я]+ [А-Яа-я]+ [А-Яа-я]+">
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer2">
+					<label for="phone">Телефонный номер:</label>
+					<input type="tel" required id="phone" name="phone" placeholder="+74991231212" pattern="\+7\d{10}">
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer3">
+					<label for="mail">Почта:</label>
+					<input type="email" required id="mail" name="mail">
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer4">
+					<label for="conf_section">Секция:</label>
+					<select id="conf_section" name="conf_section">
+						<option id="math" value="math">Математика</option>
+						<option id="physics" value="physics">Физика</option>
+						<option id="IT" value="IT">Информатика</option>
+					</select>
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer5">
+					<label for="birthday">Дата рождения:</label>
+					<input type="date" id="birthday" name="birthday">
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer6">
+					<span class="inlineText">Доклад</span>
+					<label class="switch">
+						<input type="checkbox" onclick="showRepTheme()">
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer7">
+					<!--<label for="rep_theme">Тема доклада:</label>-->
+					<input type="text" id="rep_theme" name="rep_theme" placeholder="Тема доклада">
+				</div>
+				<div class="registryInputContainer" id="registryInputContainer8">
+					<input class="button" type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</main>
+	<footer class="darkBox">
+		<div>
+			<p>© 2025-2026 ЗАО "Компания"</p>
+			<p>info@name.ru</p>
+		</div>
+		<div>
+			<ul>
+				<li class="clickable"><a href="index.html">Главная</a></li>
+				<li class="clickable"><a href="test.html">Тест</a></li>
+				<li class="clickable"><a href="register.html">Регистрация</a></li>
+				<li class="clickable"><a href="photogallery.html">Галлерея</a></li>
+				<li class="clickable"><a href="attributions.html">Упоминания</a></li>
+			</ul>
+		</div>
+		<div>
+			<div class="logo" id="bottomLogo"></div>
+			<div>
+				<p><span style="text-decoration: underline; text-underline-offset: 2px;">Разработка сайта</span> -</p>
+				<p>компания "Пиксель плюс"</p>
+			</div>
+		</div>
+	</footer>
+	<script>
+		function showRepTheme() {
+			var x = document.getElementById("registryInputContainer7");
+			if (x.style.opacity === "0") {
+				//x.style.display = "initial";
+				//x.style.opacity = "1";
+				//x.style.width = "100%";
+				//x.style.height = "auto";
+			} else {
+				//x.style.opacity = "0";
+				//x.style.display = "none";
+				//x.style.width = "0px";
+				//x.style.height = "0px";
+			}
+		}
+	</script>
+  </body>
+</html>
