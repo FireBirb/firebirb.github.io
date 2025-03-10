@@ -112,7 +112,7 @@
 			const presThemeField = document.getElementById('presThemeOutput');
 			
 			nameField.innerHTML = getCookie("fullName");
-			phoneField.innerHTML = getCookie("phoneNumber");
+			phoneField.innerHTML = decodeURIComponent(getCookie("phoneNumber"));
 			mailField.innerHTML = getCookie("mail");
 			confSectField.innerHTML = getCookie("conf_section");
 			birthdayField.innerHTML = getCookie("birthday");
