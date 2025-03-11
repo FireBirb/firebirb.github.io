@@ -361,6 +361,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+#presThemeOutput{
+	width: 70%;
+	overflow-wrap: break-word;
+}
 
 #imagesContainer {
 	width: 70%;
