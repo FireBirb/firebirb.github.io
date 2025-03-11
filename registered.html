@@ -113,7 +113,8 @@
 			const hasPresField = document.getElementById('presToggleOutput');
 			const presThemeField = document.getElementById('presThemeOutput');
 			
-			nameField.innerHTML = decodeURIComponent(getCookie("fullName"));
+			let tempName = getCookie("fullName");
+			nameField.innerHTML = decodeURIComponent(tempName);
 			phoneField.innerHTML = getCookie("phoneNumber");
 			mailField.innerHTML = getCookie("mail");
 			let temp = getCookie("conf_section");
@@ -128,31 +129,8 @@
 				presThemeField.innerHTML = decodeURIComponent(getCookie("presTheme"));
 			} else {
 				hasPresField.innerHTML = "нет";
-				//themeContainer.style.display = "flex"; //temp
-				//themeContainer.style.height = "100%"; //temp
-				//presThemeField.innerHTML = "текст текст текст текст текст"; //temp
 			}
-			/*for (let cookie of cookies) {
-				const [cookieName, cookieValue] = cookie.split('=');
-				if (cookieName === "fullName") {
-					return decodeURIComponent(cookieValue);
-				}
-			}
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate() + exdays);
-            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-			console.log(c_name + "=" + c_value);
-            document.cookie=c_name + "=" + c_value;*/
         }
-		
-		/*document.getElementById('registry').addEventListener('submit', function(event) {
-			event.preventDefault();
-			var els = document.forms['registry'].elements;
-			for (var i=els.length;i--;){
-				setCookie(els[i].name, els[i].value, 300);
-			}
-			
-		});*/
 		window.onload = getCookies;
 	</script>
 
