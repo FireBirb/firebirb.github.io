@@ -113,7 +113,7 @@
 			const hasPresField = document.getElementById('presToggleOutput');
 			const presThemeField = document.getElementById('presThemeOutput');
 			
-			nameField.innerHTML = decodeURIComponent(getCookie("fullName"));
+			nameField.innerHTML = decodeURIComponent(decodeURIComponent(getCookie("fullName")));
 			phoneField.innerHTML = getCookie("phoneNumber");
 			mailField.innerHTML = getCookie("mail");
 			let temp = getCookie("conf_section");

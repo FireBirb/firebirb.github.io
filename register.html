@@ -125,10 +125,12 @@
         {
             var exdate=new Date();
             exdate.setDate(exdate.getDate() + exdays);
-			/*if (c_name == "fullName"||c_name == "presTheme") {
+			if (c_name == "fullName"||c_name == "presTheme") {
 				let temp = value;
+				//console.log(value);
 				value = encodeURIComponent(temp);
-			}*/
+				//console.log(value);
+			}
             var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 			//console.log(c_name + "=" + c_value);
             document.cookie=c_name + "=" + c_value;
@@ -139,7 +141,7 @@
 			for (var i=els.length;i--;){
 				setCookie(els[i].name, els[i].value, 300);
 			}
-			window.location = 'registered.html';
+			//window.location = 'registered.html';
 		});
 	</script>
 
