@@ -42,7 +42,7 @@
 		<div class="circle" id="circle6"></div>
 		<div class="content">
 			<div id="registryOutput">
-				<h1 class="pageName">Регистрация участников конференции</h1>
+				<h1 class="pageName">Данные участника конференции</h1>
 				<div class="registryOutputContainer" id="registryOutputContainer1">
 					<p>ФИО: <span class="output" id="nameOutput"></span></p>
 				</div>
@@ -65,9 +65,9 @@
 					<p>Тема доклада:</p>
 					<p class="output" id="presThemeOutput"></p>
 				</div>
-				<!--<div class="registryOutputContainer" id="registryOutputContainer8">
-					<input class="button clickable" type="submit" value="Submit">
-				</div>-->
+				<div class="registryOutputContainer" id="registryOutputContainer8">
+					<p class="clickable" style="text-decoration: underline; underline-offset: 2px;"><a href="register.html">Назад</a></p>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -102,6 +102,8 @@
 		}
 		function getCookies()
         {
+			const themeContainer = document.getElementById('registryOutputContainer7');
+			
 			const fields = document.getElementsByClassName('output');
 			const nameField = document.getElementById('nameOutput');
 			const phoneField = document.getElementById('phoneOutput');
@@ -111,13 +113,25 @@
 			const hasPresField = document.getElementById('presToggleOutput');
 			const presThemeField = document.getElementById('presThemeOutput');
 			
-			nameField.innerHTML = getCookie("fullName");
-			phoneField.innerHTML = decodeURIComponent(getCookie("phoneNumber"));
+			nameField.innerHTML = decodeURIComponent(getCookie("fullName"));
+			phoneField.innerHTML = getCookie("phoneNumber");
 			mailField.innerHTML = getCookie("mail");
-			confSectField.innerHTML = getCookie("conf_section");
+			let temp = getCookie("conf_section");
+			if (temp == "math") {confSectField.innerHTML = "математика";}
+			else if (temp == "physics") {confSectField.innerHTML = "физика";}
+			else {confSectField.innerHTML = "информатика";}
 			birthdayField.innerHTML = getCookie("birthday");
-			hasPresField.innerHTML = getCookie("hasPres")=="on" ? "да" : "нет";
-			presThemeField.innerHTML = getCookie("presTheme");
+			if(getCookie("hasPres")=="on") {
+				hasPresField.innerHTML = "да";
+				themeContainer.style.display = "flex";
+				themeContainer.style.height = "100%";
+				presThemeField.innerHTML = decodeURIComponent(getCookie("presTheme"));
+			} else {
+				hasPresField.innerHTML = "нет";
+				themeContainer.style.display = "flex"; //temp
+				themeContainer.style.height = "100%"; //temp
+				presThemeField.innerHTML = "текст текст текст текст текст"; //temp
+			}
 			/*for (let cookie of cookies) {
 				const [cookieName, cookieValue] = cookie.split('=');
 				if (cookieName === "fullName") {
