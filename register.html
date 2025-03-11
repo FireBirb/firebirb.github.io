@@ -70,7 +70,7 @@
 				<div class="registryInputContainer" id="registryInputContainer6">
 					<span class="inlineText">Доклад</span>
 					<label class="switch">
-						<input type="checkbox" name="hasPres" onclick="showPresTheme()">
+						<input type="checkbox" name="hasPres" onclick="showPresTheme()" value="">
 						<span class="slider round"></span>
 					</label>
 				</div>
@@ -111,14 +111,17 @@
 		function showPresTheme() {
 			var x = document.getElementById("registryInputContainer7");
 			var txtArea = document.getElementById("presTheme");
+			var toggle = document.getElementsByName("hasPres")[0];
 			if (x.style.display == "none") {
 				x.style.display = "flex";
 				x.style.height = "100%";
 				txtArea.required = true;
+				toggle.value = "on";
 			} else {
 				x.style.display = "none";
 				x.style.height = "0px";
 				txtArea.required = false;
+				toggle.value = "";
 			}
 		}
 		function setCookie(c_name,value,exdays)
@@ -131,6 +134,7 @@
 				value = encodeURIComponent(temp);
 				//console.log(value);
 			}
+			//console.log(value);
             var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 			//console.log(c_name + "=" + c_value);
             document.cookie=c_name + "=" + c_value;

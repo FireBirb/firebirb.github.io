@@ -104,7 +104,6 @@
         {
 			const themeContainer = document.getElementById('registryOutputContainer7');
 			
-			const fields = document.getElementsByClassName('output');
 			const nameField = document.getElementById('nameOutput');
 			const phoneField = document.getElementById('phoneOutput');
 			const mailField = document.getElementById('mailOutput');
@@ -125,9 +124,11 @@
 				hasPresField.innerHTML = "да";
 				themeContainer.style.display = "flex";
 				themeContainer.style.height = "100%";
-				presThemeField.innerHTML = decodeURIComponent(getCookie("presTheme"));
+				presThemeField.innerHTML = decodeURIComponent(decodeURIComponent(getCookie("presTheme")));
 			} else {
 				hasPresField.innerHTML = "нет";
+				themeContainer.style.display = "none";
+				themeContainer.style.height = "0px";
 			}
         }
 		window.onload = getCookies;
