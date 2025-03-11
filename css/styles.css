@@ -251,7 +251,7 @@ fieldset{
 	align-items: center;
 }
 #finishTestButton {
-	width: 40%;
+	width: max(30%, 111px);
 	height: 17pt;
 }
 
@@ -518,7 +518,7 @@ input:checked + .slider:before {
 	background-size:70%;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-image: url('../Images/spiderFav.png');
+	background-image: url('../Images/spider.png');
 }
 
 footer{
